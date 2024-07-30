@@ -1,0 +1,25 @@
+kubectl apply -f - <<EOF
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: stage-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: thepemasystem.gov.bt
+    http:
+        paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: echo1
+              port:
+                number: 80
+  tls:
+    - hosts:
+        - thepemasystem.gov.bt
+      secretName: frontend-test        
+EOF
