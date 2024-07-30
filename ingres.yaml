@@ -14,7 +14,7 @@ spec:
           path: "/"
           backend:
             service:
-              name: echo1
+              name: echo2
               port:
                 number: 80
   tls:
