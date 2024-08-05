@@ -20,4 +20,4 @@ spec:
   tls:
     - hosts:
         - thepemasystem.gov.bt
-      secretName: frontend-tess
+      secretName: frontend-test
